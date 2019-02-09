@@ -1,0 +1,46 @@
+# BlocksToCommands (V.3.12) 2017
+# By ILoveAMac
+
+#====IF YOU DON'T UNDERSTAND THE CODE BELOW LEAVE IT ALONE====#
+permissions:
+  create: btc.create
+  remove: btc.remove
+  use: btc.use
+  cost: btc.cost
+  reload: btc.reload
+  list: btc.list
+
+messages:
+
+  # Player does not have needed perms set above
+  noPermsCreate: '&4You do not have permission to preform the command!'
+  noPermsRemove: '&4You do not have permission to preform the command!'
+  noPermsUse: '&4You do not have permission to use this block!'
+  noPermsGeneric: '&4You do not have permission to to do this!'
+
+  # Exception occurred during right click
+  clickException: '&c[btc] Unfortunately this block is not working as it should. Please contact a administrator to get this fixed.'
+
+  # May not break block
+  noBreak: '&4You do not have permission to break this block!'
+
+  # Name already in blocks.yml
+  nameAlreadySet: '&c[BTC] This name is in use, rename and try again.'
+
+  # Block removed
+  blockDelete: '&a[BTC] The block was removed!'
+
+  # Block does not exist in blocks.yml
+  notExist: '&c[BTC] The command could not be removed because it does not exist!'
+
+  # No true / false value for runFromConsole *DON'T TOUCH TO PREVENT CONFUSION!*
+  noRunFromConsole: '&c[BTC] You must give a true / false value for runFromConsole!'
+
+  # Player does not have enough funds
+  noFunds: '&c[BTC] You don''t have enough funds to use this!'
+
+  currency: 'dollars'
+
+options:
+  # can Shift remove blocks
+  shiftRemove: true
