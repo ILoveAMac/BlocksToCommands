@@ -32,4 +32,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* DeveloperB - [YouTube](https://www.youtube.com/channel/UCzaFFTDYCIHUMG1I9SKhJ3w) for help with config files.
+* DeveloperB - [YouTube](https://www.youtube.com/channel/UCzaFFTDYCIHUMG1I9SKhJ3w) - for help with config files.
