@@ -44,3 +44,6 @@ messages:
 options:
   # can Shift remove blocks
   shiftRemove: true
+  
+  # hear a "ding" on right click
+  soundOnClick: true
