@@ -71,8 +71,9 @@ public class PlayerInteract implements Listener {
                             if (x == Integer.parseInt(getBlocks().get(nodes[i] + ".X") + "") && y == Integer.parseInt(getBlocks().get(nodes[i] + ".Y") + "") && z == Integer.parseInt(getBlocks().get(nodes[i] + ".Z") + "") && world.equalsIgnoreCase(getBlocks().get(nodes[i] + ".World") + "")) {
                                 event.setCancelled(true);
                                 if (cost.applyCost(player, getBlocks().get(nodes[i] + ".Name") + "")) {
-                                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
-
+                                	if (MainConfigManager.getInstance().get("options.soundOnClick").equals(true)) {
+                                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 10, 1);
+                                	}                               
                                     String runFromConsole = getBlocks().get(nodes[i] + ".runFromConsole") + "";
                                     if (runFromConsole.equalsIgnoreCase("false")) {
                                         String command = replaceVars.getVariables(getBlocks().get(nodes[i] + ".Command") + "", player, location);
