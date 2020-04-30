@@ -591,9 +591,6 @@ public class BTC implements CommandExecutor {
 	}
 
 	private boolean isCommandSenderPlayer(CommandSender sender) {
-		if (sender instanceof Player) {
-			return true;
-		}
-		return false;
+		return sender instanceof Player;
 	}
 }

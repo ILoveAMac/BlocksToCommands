@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="Vault">
+  <library name="Vault1">
     <CLASSES>
-      <root url="jar://Z:/M/Minecraft/Plugin Development/Vault.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Repos/Eclips/Vault/Vault.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
