@@ -10,6 +10,9 @@ import me.ILoveAMac.BTC.listeners.PlayerInteract;
 import me.ILoveAMac.BTC.util.ConfigManager;
 import net.milkbowl.vault.economy.Economy;
 
+import java.io.File;
+import java.io.IOException;
+
 public class Main extends JavaPlugin {
 
 	private static Main plugin;
@@ -50,14 +53,13 @@ public class Main extends JavaPlugin {
 	}
 	
 	private void setupEconomy() {
-        if (!setupEconomySucsess()) {
+        if (!setupEconomySuccess()) {
             this.getLogger().severe("Disabled due to no Vault dependency found!");
             Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
+		}
 	}
 	
-    private boolean setupEconomySucsess() {
+    private boolean setupEconomySuccess() {
         if (Bukkit.getPluginManager().getPlugin("Vault") == null) {
             return false;
         }
@@ -69,6 +71,22 @@ public class Main extends JavaPlugin {
         econ = rsp.getProvider();
         return econ != null;
     }
+
+    private void setupBlocksFolder(){
+		File file = new File(this.getDataFolder() + "blocks");
+		try {
+			boolean created = file.createNewFile();
+			if (created) {
+				this.getLogger().info("The blocks data folder has been created!");
+			} else {
+				this.getLogger().severe("Could not create blocks data folder! Does the plugin have permission?");
+				this.getLogger().info("Disabling plugin...");
+				Bukkit.getPluginManager().disablePlugin(this);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static Main getPlugin() {
 		return plugin;

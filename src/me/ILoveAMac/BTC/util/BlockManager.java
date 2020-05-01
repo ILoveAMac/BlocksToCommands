@@ -16,7 +16,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class BlockManager {
 
-	private String blocksDataFolderPath = "plugins" + File.separator + "Blocks_To_Commands" + File.separator + "blocks";
+	private final String blocksDataFolderPath = "plugins" + File.separator + "Blocks_To_Commands" + File.separator + "blocks";
 
 	public void CreateBlock(CmdBlock cmdBlock) {
 		FileConfiguration config = null;
@@ -47,7 +47,7 @@ public class BlockManager {
 	}
 
 	public void cloneBlock(String nameOfBlockToClone, String newBlockName, Location locationOfNewBlock)
-			throws FileNotFoundException, IOException, IllegalArgumentException {
+			throws IOException, IllegalArgumentException {
 
 		// Check if block to clone exists
 		if (!doesBlockExist(nameOfBlockToClone)) {
