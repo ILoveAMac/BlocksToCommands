@@ -121,7 +121,7 @@ fabric.properties
 bin/*
 .settings
 BlocksToCommands.iml
-*.jardesc
+exporter.jardesc
 .classpath
 
 # MAC
