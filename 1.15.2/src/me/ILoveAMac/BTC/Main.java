@@ -65,12 +65,12 @@ public class Main extends JavaPlugin {
             return false;
         }
 
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
-            return false;
-        }
-        econ = rsp.getProvider();
-        return econ != null;
+		RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+		if (rsp == null) {
+			return false;
+		}
+		econ = rsp.getProvider();
+		return econ != null;
     }
 
     private void setupBlocksFolder(){
@@ -83,6 +83,7 @@ public class Main extends JavaPlugin {
 				this.getLogger().severe("Could not create blocks data folder! Does the plugin have permission?");
 				this.getLogger().info("Disabling plugin...");
 				Bukkit.getPluginManager().disablePlugin(this);
+				System.exit(0);
 			}
 		} else {
 			this.getLogger().info("blocks data folder is ready.");
