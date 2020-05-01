@@ -590,8 +590,6 @@ public class BlockManager {
 		}
 
 		// Create location
-		Location location = new Location(world, x, y, z);
-
-		return location;
+		return new Location(world, x, y, z);
 	}
 }

@@ -19,7 +19,7 @@ public class BlockBreak implements Listener {
 		Location blockLocation = event.getBlock().getLocation();
 		BlockManager manager = new BlockManager();
 
-		if (manager.isBlockAssigned(blockLocation) == false) {
+		if (!manager.isBlockAssigned(blockLocation)) {
 			// Normal block break
 			return;
 		}

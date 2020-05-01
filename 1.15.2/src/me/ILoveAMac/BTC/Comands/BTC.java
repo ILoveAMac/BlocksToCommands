@@ -143,7 +143,7 @@ public class BTC implements CommandExecutor {
 					tpLocation.setPitch(90);
 
 					player.teleport(tpLocation);
-					sendMsg.succesfullTp(blockName);
+					sendMsg.successfulTp(blockName);
 					return true;
 
 				}
@@ -397,7 +397,7 @@ public class BTC implements CommandExecutor {
 
 					String blockName = args[2];
 					manager.setCooldown(blockName, cooldown);
-					sendMsg.cooldowwnSet(cooldown);
+					sendMsg.cooldownSet(cooldown);
 					return true;
 				} else if (args[0].equalsIgnoreCase("set") && args[1].equalsIgnoreCase("cost")) {
 					// btc add cost {name} 100

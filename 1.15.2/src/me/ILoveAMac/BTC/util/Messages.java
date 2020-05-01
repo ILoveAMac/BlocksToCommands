@@ -307,7 +307,7 @@ public class Messages {
 		player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe cooldown has been removed."));
 	}
 
-	public void cooldowwnSet(int cooldown) {
+	public void cooldownSet(int cooldown) {
 		player.sendMessage(ChatColor.translateAlternateColorCodes('&',
 				"&6&l[BTC] &r&aThe cooldown has been set to: &b" + cooldown + " &aseconds"));
 	}
@@ -384,7 +384,7 @@ public class Messages {
 		}
 
 		player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-				"&6&l[BTC] &r&aThe premission set to &b" + blockName + " &ais &b" + perm));
+				"&6&l[BTC] &r&aThe permission set to &b" + blockName + " &ais &b" + perm));
 
 	}
 
@@ -395,7 +395,7 @@ public class Messages {
 
 		if (cooldown == 0) {
 			player.sendMessage(
-					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no premission set."));
+					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no permission set."));
 			return;
 		}
 
@@ -406,7 +406,7 @@ public class Messages {
 
 	public void removePerm() {
 		player.sendMessage(
-				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe premission has been removed."));
+				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe permission has been removed."));
 	}
 
 	public void invalidIntegerInput(String incorrectInput) {
@@ -426,17 +426,17 @@ public class Messages {
 
 	public void invalidTrueFalseInput(String incorrectInput) {
 		player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-				"&6&l[BTC] &r&cThe value: &a" + incorrectInput + "&c is not a valid true/fales value!"));
+				"&6&l[BTC] &r&cThe value: &a" + incorrectInput + "&c is not a valid true/false value!"));
 	}
 
-	public void succesfullTp(String blockName) {
+	public void successfulTp(String blockName) {
 		player.sendMessage(
 				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aYou were teleported to:&b " + blockName));
 	}
 
 	public void notAdmin() {
 		player.sendMessage(
-				ChatColor.translateAlternateColorCodes('&', "&c&lYou do not have premission to preform that command."));
+				ChatColor.translateAlternateColorCodes('&', "&c&lYou do not have permission to preform that command."));
 	}
 
 	public void cannotBreakBlockAdmin(String blockName) {

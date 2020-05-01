@@ -27,8 +27,11 @@ public class Main extends JavaPlugin {
 		// Setup plugin functions
 		commandRegister();
 		eventRegister();
+
+		setupPluginFolder();
 		configSetup();
 		setupBlocksFolder();
+
 		setupEconomy();
 		
 		// TODO Validate the blocks folder
@@ -55,7 +58,7 @@ public class Main extends JavaPlugin {
 	
 	private void setupEconomy() {
         if (!setupEconomySuccess()) {
-            this.getLogger().severe("Disabled due to no Vault dependency found!");
+            this.getLogger().severe("Vault is not installed and or you don't have an economy plugin!");
             Bukkit.getPluginManager().disablePlugin(this);
 		}
 	}
@@ -87,6 +90,12 @@ public class Main extends JavaPlugin {
 			}
 		} else {
 			this.getLogger().info("blocks data folder is ready.");
+		}
+	}
+
+	public void setupPluginFolder(){
+		if (!this.getDataFolder().exists()) {
+			this.getDataFolder().mkdir();
 		}
 	}
 

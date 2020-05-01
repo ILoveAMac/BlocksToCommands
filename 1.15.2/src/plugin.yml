@@ -5,7 +5,7 @@ version: '5.0.0 Beta'
 author: ILoveAMac
 description: Plugin that allows user to assign commands to blocks. The commands are then run when the block is right-clicked.
 prefix: BTC
-depend: [Vault]
+softdepend: [Vault]
  
 permissions:
   btc.*:
