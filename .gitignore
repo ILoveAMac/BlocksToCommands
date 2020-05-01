@@ -121,7 +121,8 @@ fabric.properties
 bin/*
 .settings
 BlocksToCommands.iml
-*.jardesec
+*.jardesc
+.classpath
 
 # MAC
 .DS_Store
