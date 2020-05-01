@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,7 +19,6 @@ import me.ILoveAMac.BTC.util.VariableReplacer;
 import net.md_5.bungee.api.ChatColor;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
-import net.minecraft.server.v1_8_R3.Material;
 
 public class PlayerInteract implements Listener {
 
@@ -26,7 +26,7 @@ public class PlayerInteract implements Listener {
 	@EventHandler
 	public void onClick(PlayerInteractEvent event) {
 
-		if (event.getClickedBlock() == null || event.getClickedBlock() == Material.AIR) {
+		if (event.getClickedBlock() == null || event.getClickedBlock().getType() == Material.AIR) {
 			// No block clicked
 			return;
 		}
@@ -38,7 +38,7 @@ public class PlayerInteract implements Listener {
 		Location clickLocation = event.getClickedBlock().getLocation();
 
 		// Check if block is a BTC block
-		if (blockManager.isBlockAssigned(clickLocation) == false) {
+		if (!blockManager.isBlockAssigned(clickLocation)) {
 			// Not a BTC Block
 			return;
 		}
@@ -78,7 +78,7 @@ public class PlayerInteract implements Listener {
 		// TODO Cooldown implementation
 
 		if (cost > 0) {
-			if (applyCostSucsess(cost, player)) {
+			if (applyCostSuccess(cost, player)) {
 				sendMsg.moneyDeducted(cost);
 			} else {
 				sendMsg.notEnoughFunds(cost);
@@ -127,7 +127,7 @@ public class PlayerInteract implements Listener {
 		}
 	}
 
-	public boolean applyCostSucsess(float cost, Player player) {
+	public boolean applyCostSuccess(float cost, Player player) {
 		Economy economy = Main.getPlugin().getEconomy();
 
 		EconomyResponse economyResponse = economy.withdrawPlayer(player, cost);
@@ -141,15 +141,9 @@ public class PlayerInteract implements Listener {
 
 	public boolean doesHavePermission(String customPerm, Player player) {
 		if (customPerm == null) {
-			if (player.hasPermission("btc.use")) {
-				return true;
-			}
-			return false;
+			return player.hasPermission("btc.use");
 		} else {
-			if (player.hasPermission("btc.use") && player.hasPermission(customPerm)) {
-				return true;
-			}
-			return false;
+			return player.hasPermission("btc.use") && player.hasPermission(customPerm);
 		}
 	}
 }
