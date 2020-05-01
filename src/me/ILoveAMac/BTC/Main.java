@@ -74,9 +74,9 @@ public class Main extends JavaPlugin {
     }
 
     private void setupBlocksFolder(){
-		File file = new File(this.getDataFolder() + "blocks");
-		try {
-			boolean created = file.createNewFile();
+		File file = new File(this.getDataFolder() + File.separator + "blocks");
+		if (!(file.exists() && file.isDirectory())) {
+			boolean created = file.mkdir();
 			if (created) {
 				this.getLogger().info("The blocks data folder has been created!");
 			} else {
@@ -84,8 +84,8 @@ public class Main extends JavaPlugin {
 				this.getLogger().info("Disabling plugin...");
 				Bukkit.getPluginManager().disablePlugin(this);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		} else {
+			this.getLogger().info("blocks data folder is ready.");
 		}
 	}
 
