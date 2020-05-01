@@ -25,6 +25,7 @@ public class Main extends JavaPlugin {
 		plugin = this;
 		
 		// Setup plugin functions
+		setupBlocksFolder();
 		commandRegister();
 		eventRegister();
 		configSetup();
