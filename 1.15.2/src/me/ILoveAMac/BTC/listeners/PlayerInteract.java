@@ -84,7 +84,7 @@ public class PlayerInteract implements Listener {
 		// TODO Cooldown implementation
 
 		if (cost > 0) {
-			if (applyCostSucsess(cost, player)) {
+			if (applyCostSuccess(cost, player)) {
 				sendMsg.moneyDeducted(cost);
 			} else {
 				sendMsg.notEnoughFunds(cost);
@@ -133,29 +133,19 @@ public class PlayerInteract implements Listener {
 		}
 	}
 
-	public boolean applyCostSucsess(float cost, Player player) {
+	public boolean applyCostSuccess(float cost, Player player) {
 		Economy economy = Main.getPlugin().getEconomy();
 
 		EconomyResponse economyResponse = economy.withdrawPlayer(player, cost);
 
-		if (economyResponse.transactionSuccess()) {
-			return true;
-		} else {
-			return false;
-		}
+		return economyResponse.transactionSuccess();
 	}
 
 	public boolean doesHavePermission(String customPerm, Player player) {
 		if (customPerm == null) {
-			if (player.hasPermission("btc.use")) {
-				return true;
-			}
-			return false;
+			return player.hasPermission("btc.use");
 		} else {
-			if (player.hasPermission("btc.use") && player.hasPermission(customPerm)) {
-				return true;
-			}
-			return false;
+			return player.hasPermission("btc.use") && player.hasPermission(customPerm);
 		}
 	}
 }

@@ -42,13 +42,10 @@ public class BlockBreak implements Listener {
 		if (player.hasPermission("btc.admin")) {
 			// Block must be deleted first msg
 			sendMsg.cannotBreakBlockAdmin(blockName);
-			// Cancel event
-			event.setCancelled(true);
 		} else {
 			// Not admin msg
 			sendMsg.cannotBreakBlock();
-			// Cancel event
-			event.setCancelled(true);
 		}
+		event.setCancelled(true);
 	}
 }

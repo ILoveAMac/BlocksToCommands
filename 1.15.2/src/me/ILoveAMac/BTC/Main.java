@@ -60,6 +60,7 @@ public class Main extends JavaPlugin {
         if (!setupEconomySuccess()) {
             this.getLogger().severe("Vault is not installed and or you don't have an economy plugin!");
             Bukkit.getPluginManager().disablePlugin(this);
+            System.exit(0);
 		}
 	}
 	
@@ -95,7 +96,13 @@ public class Main extends JavaPlugin {
 
 	public void setupPluginFolder(){
 		if (!this.getDataFolder().exists()) {
-			this.getDataFolder().mkdir();
+			boolean mkdir = this.getDataFolder().mkdir();
+			if (!mkdir){
+				this.getLogger().severe("Could not create main plugin folder! Does the plugin have permission?");
+				this.getLogger().info("Disabling plugin...");
+				Bukkit.getPluginManager().disablePlugin(this);
+				System.exit(0);
+			}
 		}
 	}
 
