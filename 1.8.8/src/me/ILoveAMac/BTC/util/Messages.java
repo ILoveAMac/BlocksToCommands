@@ -247,7 +247,7 @@ public class Messages {
 	}
 
 	public void unknownError() {
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&6An &cunknown error &6ocurred."));
+		player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&6An &cunknown error &6occurred."));
 		player.sendMessage(ChatColor.translateAlternateColorCodes('&',
 				"&7Try deleting all the files in the blocks folder and starting again"));
 	}
@@ -274,7 +274,7 @@ public class Messages {
 
 	public void locationInfo(String blockName) {
 		BlockManager manager = new BlockManager();
-		Location blockLocation = manager.getBlockLoaction(blockName);
+		Location blockLocation = manager.getBlockLocation(blockName);
 
 		player.sendMessage(
 				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aLocation info of:&b " + blockName));
@@ -368,7 +368,7 @@ public class Messages {
 	}
 	
 	public void permSet(String perm, String blockName) {
-		player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe premission:&d " + perm
+		player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe permission:&d " + perm
 				+ "&a will now be needed to interact with block: &b" + blockName));
 	}
 
@@ -379,7 +379,7 @@ public class Messages {
 
 		if (perm == null) {
 			player.sendMessage(
-					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no premission set."));
+					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no permission set."));
 			return;
 		}
 
@@ -395,7 +395,7 @@ public class Messages {
 
 		if (cooldown == 0) {
 			player.sendMessage(
-					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no premission set."));
+					ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThis block has no permission set."));
 			return;
 		}
 
@@ -406,7 +406,7 @@ public class Messages {
 
 	public void removePerm() {
 		player.sendMessage(
-				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe premission has been removed."));
+				ChatColor.translateAlternateColorCodes('&', "&6&l[BTC] &r&aThe permission has been removed."));
 	}
 
 	public void invalidIntegerInput(String incorrectInput) {
@@ -436,7 +436,7 @@ public class Messages {
 
 	public void notAdmin() {
 		player.sendMessage(
-				ChatColor.translateAlternateColorCodes('&', "&c&lYou do not have premission to preform that command."));
+				ChatColor.translateAlternateColorCodes('&', "&c&lYou do not have permission to preform that command."));
 	}
 
 	public void cannotBreakBlockAdmin(String blockName) {

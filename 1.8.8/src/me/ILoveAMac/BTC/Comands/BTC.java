@@ -136,7 +136,7 @@ public class BTC implements CommandExecutor {
 						return true;
 					}
 
-					Location tpLocation = manager.getBlockLoaction(blockName);
+					Location tpLocation = manager.getBlockLocation(blockName);
 
 					tpLocation.add(0.500, 0, 0.500);
 					tpLocation.setYaw(-90);
@@ -318,7 +318,7 @@ public class BTC implements CommandExecutor {
 				sendMsg.invalidArgumentsGeneral();
 				return true;
 
-			} else if (args.length >= 4) {
+			} else {
 
 				// btc add cmd {name} {true / false} {command}
 				// 4 or more args
@@ -547,10 +547,7 @@ public class BTC implements CommandExecutor {
 
 				sendMsg.invalidArgumentsGeneral();
 				return true;
-
 			}
-			sendMsg.invalidArgumentsGeneral();
-			return true;
 
 			// Console
 		} else if (commandLable.equalsIgnoreCase("btc") && !isCommandSenderPlayer(sender)) {

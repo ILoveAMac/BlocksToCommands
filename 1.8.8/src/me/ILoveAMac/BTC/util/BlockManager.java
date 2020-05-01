@@ -571,7 +571,7 @@ public class BlockManager {
 		return null;
 	}
 
-	public Location getBlockLoaction(String blockName) {
+	public Location getBlockLocation(String blockName) {
 
 		File file = new File(blocksDataFolderPath + File.separator + blockName + ".yml");
 		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
@@ -590,8 +590,7 @@ public class BlockManager {
 		}
 
 		// Create location
-		Location location = new Location(world, x, y, z);
 
-		return location;
+		return new Location(world, x, y, z);
 	}
 }

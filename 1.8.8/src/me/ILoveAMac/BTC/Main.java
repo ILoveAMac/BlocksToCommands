@@ -27,8 +27,11 @@ public class Main extends JavaPlugin {
 		// Setup plugin functions
 		commandRegister();
 		eventRegister();
+
+		setupPluginFolder();
 		configSetup();
 		setupBlocksFolder();
+
 		setupEconomy();
 		
 		// TODO Validate the blocks folder
@@ -43,19 +46,19 @@ public class Main extends JavaPlugin {
 		getCommand("btc").setExecutor(new BTC());
 	}
 	
-	public void eventRegister() {
+	private void eventRegister() {
 		getServer().getPluginManager().registerEvents(new BlockBreak(), this);
 		getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
 	}
 	
-	public void configSetup() {
+	private void configSetup() {
 		this.saveDefaultConfig();
 		ConfigManager.getInstance().setup(this);
 	}
 	
 	private void setupEconomy() {
         if (!setupEconomySuccess()) {
-            this.getLogger().severe("Disabled due to no Vault dependency found!");
+            this.getLogger().severe("Vault is not installed and or you do not have an economy plugin installed!");
             Bukkit.getPluginManager().disablePlugin(this);
 		}
 	}
@@ -83,9 +86,22 @@ public class Main extends JavaPlugin {
 				this.getLogger().severe("Could not create blocks data folder! Does the plugin have permission?");
 				this.getLogger().info("Disabling plugin...");
 				Bukkit.getPluginManager().disablePlugin(this);
+				System.exit(0);
 			}
 		} else {
 			this.getLogger().info("blocks data folder is ready.");
+		}
+	}
+
+	private void setupPluginFolder() {
+		if (!this.getDataFolder().exists()) {
+			boolean mkdir = this.getDataFolder().mkdir();
+			if (!mkdir){
+				this.getLogger().severe("Could not create main plugin folder! Does the plugin have permission?");
+				this.getLogger().info("Disabling plugin...");
+				Bukkit.getPluginManager().disablePlugin(this);
+				System.exit(0);
+			}
 		}
 	}
 

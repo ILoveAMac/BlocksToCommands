@@ -51,7 +51,7 @@ public class PlayerInteract implements Listener {
 
 		// Get block data
 		String blockName = blockManager.getBlockName(clickLocation);
-		Location blockLocation = blockManager.getBlockLoaction(blockName);
+		Location blockLocation = blockManager.getBlockLocation(blockName);
 
 		String customPerm = blockManager.getPerm(blockName);
 		float cost = blockManager.getCost(blockName);
