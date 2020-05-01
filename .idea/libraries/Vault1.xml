@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Vault1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Repos/Eclips/Vault/Vault.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
