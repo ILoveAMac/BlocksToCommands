@@ -2,6 +2,8 @@ package me.ILoveAMac.BTC.Comands;
 
 import java.util.Set;
 
+import me.ILoveAMac.BTC.util.BlockManager;
+import me.ILoveAMac.BTC.util.ConfigManager;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -10,9 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.ILoveAMac.BTC.Main;
-import me.ILoveAMac.BTC.util.BlockManager;
 import me.ILoveAMac.BTC.util.CmdBlock;
-import me.ILoveAMac.BTC.util.ConfigManager;
 import me.ILoveAMac.BTC.util.Messages;
 
 public class BTC implements CommandExecutor {

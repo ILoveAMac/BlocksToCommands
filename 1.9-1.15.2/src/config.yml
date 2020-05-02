@@ -7,9 +7,13 @@
 #     \|_______|    \|__|  \|_______|
 
 # BlocksToCommands (V.5.0.0 BETA) 2020
-# API: Minecraft 1.8
 
 # By ILoveAMac
+
+# Plugin perms
+# btc.admin -> Give only to admins on server
+# btc.use -> Give to players you want to use BTC blocks
+# custom perms can be assigned to blocks too. If a block has a custom perm, a player needs btc.use and the custom set perm in order to use the block
 
 # These are the messages non-admin players will receive
 # The fundsDeducted and notEnoughFunds message has variables.
@@ -29,8 +33,4 @@ currency: 'dollars'
 options:
   adminShiftRemove: true # When enabled players with the perm btc.admin ac hold shift and break a BTC block to delete it
   interactSounds: true # Play sounds when players interact with BTC blocks
-
-# Plugin perms
-# btc.admin -> Give only to admins on server
-# btc.use -> Give to players you want to use BTC blocks
-# custom perms can be assigned to blocks too. If a block has a custom perm, a player needs btc.use and the custom set perm in order to use the block
+  metrics: true # collect anonymous data to improve plugin?

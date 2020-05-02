@@ -23,6 +23,6 @@ permissions:
 # Commands
 commands:
   btc:
-    description: Main Command For The Blocks To Commands Plugin
+    description: Main Command for BTC
     permission: btc.admin
     usage: /btc help

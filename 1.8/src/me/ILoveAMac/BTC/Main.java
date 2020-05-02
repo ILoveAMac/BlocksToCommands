@@ -1,24 +1,24 @@
 package me.ILoveAMac.BTC;
 
+import me.ILoveAMac.BTC.Comands.BTC;
+import me.ILoveAMac.BTC.Metrics.Metrics;
+import me.ILoveAMac.BTC.listeners.BlockBreak;
+import me.ILoveAMac.BTC.listeners.PlayerInteract;
+import me.ILoveAMac.BTC.util.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.ILoveAMac.BTC.Comands.BTC;
-import me.ILoveAMac.BTC.listeners.BlockBreak;
-import me.ILoveAMac.BTC.listeners.PlayerInteract;
-import me.ILoveAMac.BTC.util.ConfigManager;
 import net.milkbowl.vault.economy.Economy;
 
 import java.io.File;
-import java.io.IOException;
 
 public class Main extends JavaPlugin {
 
 	private static Main plugin;
 
 	private Economy econ;
-	
+
 	@Override
 	public void onEnable() {
 		// Setup main instance
@@ -33,14 +33,38 @@ public class Main extends JavaPlugin {
 		setupBlocksFolder();
 
 		setupEconomy();
-		
+
+		setupMetrics();
+
 		// TODO Validate the blocks folder
 	}
+
 
 	@Override
 	public void onDisable() {
 
 	}
+
+	private void setupMetrics() {
+		// Create opt-out in config.yml if it does not exist
+		ConfigManager configManager = ConfigManager.getInstance();
+		if (!configManager.isSet("options.metrics")) {
+			configManager.set("options.metrics", true);
+			configManager.save();
+			configManager.reloadConfig();
+		}
+
+		// Check for opt-out
+		if (!((boolean) configManager.get("options.metrics"))){
+			// user opt-out
+			return;
+		}
+
+		this.getLogger().info("Metrics have been enabled, opt-out in config.yml");
+		Metrics metrics = new Metrics(this, 7383);
+
+	}
+
 
 	public void commandRegister() {
 		getCommand("btc").setExecutor(new BTC());
@@ -96,11 +120,14 @@ public class Main extends JavaPlugin {
 	private void setupPluginFolder() {
 		if (!this.getDataFolder().exists()) {
 			boolean mkdir = this.getDataFolder().mkdir();
+			this.getLogger().info("Plugin main folder is missing. Making it now.");
 			if (!mkdir){
 				this.getLogger().severe("Could not create main plugin folder! Does the plugin have permission?");
 				this.getLogger().info("Disabling plugin...");
 				Bukkit.getPluginManager().disablePlugin(this);
 				System.exit(0);
+			} else {
+				this.getLogger().info("Plugin main folder has been created.");
 			}
 		}
 	}

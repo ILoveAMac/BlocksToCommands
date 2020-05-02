@@ -49,6 +49,10 @@ public class ConfigManager {
 		config = YamlConfiguration.loadConfiguration(file);
 	}
 
+	public boolean isSet(String path){
+		return config.isSet(path);
+	}
+
 	public void set(String path, Object value) {
 		config.set(path, value);
 	}
