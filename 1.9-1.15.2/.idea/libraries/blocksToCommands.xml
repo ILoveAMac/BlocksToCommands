@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="blocksToCommands">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Plugin JAR/blocksToCommands.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

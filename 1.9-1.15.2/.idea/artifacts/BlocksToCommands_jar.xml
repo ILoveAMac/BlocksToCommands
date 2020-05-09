@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="BlocksToCommands.jar">
-    <output-path>$PROJECT_DIR$/../../../Minecraft Server/Server - 1.15.2/plugins</output-path>
-    <root id="archive" name="BlocksToCommands.jar">
-      <element id="module-output" name="1.15.2" />
-    </root>
-  </artifact>
-</component>
