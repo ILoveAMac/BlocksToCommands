@@ -34,7 +34,7 @@ public class PlayerInteract implements Listener {
 		}
 
 		EquipmentSlot e = event.getHand(); //Get the hand of the event and set it to 'e'.
-		if (!e.equals(EquipmentSlot.HAND)) { //If the event is fired by HAND (main hand)
+		if (e != null && !e.equals(EquipmentSlot.HAND)) { //If the event is fired by HAND (main hand)
 			return;
 		}
 
